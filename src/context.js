@@ -17,12 +17,41 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [waiting, setWaiting] = useState(true); // for setup form
-  const [loading, setLoading] = useState(false); //while fetching data
+  const [loading, setLoading] = useState(true); //while fetching data
   const [questions, setQuestions] = useState([]); //data from API
   const [index, setIndex] = useState(0); //index to cycle through the questions
   const [correct, setCorrect] = useState(0); //for correct answers
   const [error, setError] = useState(false); //if data can't be retrieved
   const [isModalOpen, setIsModalOpen] = useState(false); //for modal
+
+  //set up data fetching from api
+  const fetchQuestions = async (url) => {
+    setLoading(true);
+    setWaiting(false);
+
+    const response = await axios(url).catch((err) => console.log(err));
+    if (response) {
+      const data = response.data.results;
+      //if we get response and data back from the api
+      if (data.length > 0) {
+        setQuestions(data);
+        setLoading(false);
+        setWaiting(false);
+        setError(false);
+      } else {
+        //if we get response but no data back,
+        setWaiting(true);
+        setError(true);
+      }
+    } else {
+      //if no response from API
+      setWaiting();
+    }
+  };
+
+  useEffect(() => {
+    fetchQuestions(tempUrl);
+  }, []);
 
   return (
     <AppContext.Provider
