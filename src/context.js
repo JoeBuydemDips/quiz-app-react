@@ -23,6 +23,11 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0); //for correct answers
   const [error, setError] = useState(false); //if data can't be retrieved
   const [isModalOpen, setIsModalOpen] = useState(false); //for modal
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: "sports",
+    difficulty: "easy",
+  });
 
   //set up data fetching from api
   const fetchQuestions = async (url) => {
@@ -49,6 +54,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  //Functinality for next question
   const nextQuestion = () => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1;
@@ -59,6 +65,7 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  //function to check if answer is correct
   const checkAnswer = (value) => {
     if (value) {
       setCorrect((correct) => correct + 1);
@@ -66,19 +73,29 @@ const AppProvider = ({ children }) => {
     nextQuestion();
   };
 
+  //open modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
+  //close modal when game is done
   const closeModal = () => {
     setIsModalOpen(false);
     setWaiting(true);
     setCorrect(0);
   };
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  // useEffect(() => {
+  //   fetchQuestions(tempUrl);
+  // }, []);
+
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <AppContext.Provider
@@ -90,9 +107,12 @@ const AppProvider = ({ children }) => {
         correct,
         error,
         isModalOpen,
+        quiz,
         nextQuestion,
         checkAnswer,
         closeModal,
+        handleChange,
+        handleSubmit,
       }}
     >
       {children}
