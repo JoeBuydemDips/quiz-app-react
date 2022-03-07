@@ -5,6 +5,9 @@ const SetupForm = () => {
   const { quiz, handleChange, handleSubmit, error } = useGlobalContext();
   return (
     <main>
+      <header className="header">
+        <h3>Hey, wanna play trivia 🤯?</h3>
+      </header>
       <section class="quiz quiz-small">
         <form className="setup-form">
           <h2>Setup Trivia</h2>

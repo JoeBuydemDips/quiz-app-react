@@ -96,6 +96,12 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-3);
 }
+
+.header {
+  margin-top: 4rem;
+  display:flex;
+  justify-content: center;
+}
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 3rem;
@@ -142,7 +148,7 @@ Quiz
 
 main {
   min-height: 100vh;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
 }
@@ -158,7 +164,7 @@ main {
 .quiz-small {
   max-width: 500px;
 }
-.container h2 {
+.container h4 {
   margin-bottom: 2rem;
   text-align: center;
   line-height: 1.5;

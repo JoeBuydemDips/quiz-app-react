@@ -42,7 +42,7 @@ function App() {
           corect answers: {correct}/{isModalOpen ? questions.length : index}
         </p>
         <article className="container">
-          <h2 dangerouslySetInnerHTML={{ __html: question }} />
+          <h4 dangerouslySetInnerHTML={{ __html: question }} />
           <div className="btn-container">
             {answers.map((answer, index) => {
               return (
