@@ -90,6 +90,12 @@ const AppProvider = ({ children }) => {
   // }, []);
 
   const handleChange = (e) => {
+    const name = e.target.name; //get the name of the element
+    const value = e.target.value; //get the value of the element
+
+    //change property(amount,category or difficulty) of quiz object to value selected.
+    setQuiz({ ...quiz, [name]: value });
+
     console.log(e);
   };
 
