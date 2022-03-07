@@ -85,20 +85,16 @@ const AppProvider = ({ children }) => {
     setCorrect(0);
   };
 
-  // useEffect(() => {
-  //   fetchQuestions(tempUrl);
-  // }, []);
-
+  //function to set values of elements
   const handleChange = (e) => {
     const name = e.target.name; //get the name of the element
     const value = e.target.value; //get the value of the element
 
     //change property(amount,category or difficulty) of quiz object to value selected.
     setQuiz({ ...quiz, [name]: value });
-
-    console.log(e);
   };
 
+  //Function to submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     const { amount, category, difficulty } = quiz; //destructure object
