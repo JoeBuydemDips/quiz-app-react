@@ -41,6 +41,7 @@ function App() {
         <p className="correct-answers">
           corect answers: {correct}/{isModalOpen ? questions.length : index}
         </p>
+
         <article className="container">
           <h4 dangerouslySetInnerHTML={{ __html: question }} />
           <div className="btn-container">
