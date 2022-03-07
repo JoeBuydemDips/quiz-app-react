@@ -14,6 +14,7 @@ function App() {
     correct,
     nextQuestion,
     checkAnswer,
+    isModalOpen,
   } = useGlobalContext();
 
   if (waiting) {
@@ -38,7 +39,7 @@ function App() {
       <Modal />
       <section className="quiz">
         <p className="correct-answers">
-          corect answers: {correct}/{index}
+          corect answers: {correct}/{isModalOpen ? questions.length : index}
         </p>
         <article className="container">
           <h2 dangerouslySetInnerHTML={{ __html: question }} />
