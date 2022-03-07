@@ -6,8 +6,8 @@ const SetupForm = () => {
   return (
     <main>
       <section class="quiz quiz-small">
-        <h2>Setup Quiz</h2>
         <form className="setup-form">
+          <h2>Setup Trivia</h2>
           {/*amount*/}
           <div className="form-control">
             <label htmlFor="amount">number of questions</label>
