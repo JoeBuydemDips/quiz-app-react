@@ -27,7 +27,7 @@ function App() {
 
   return (
     <main>
-      {/* <Modal /> */}
+      <Modal />
       <section className="quiz">
         <p className="correct-answers">
           corect answers: {correct}/{index}
