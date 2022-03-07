@@ -28,7 +28,7 @@ function App() {
   //a correct answer in a random index of the answers array
   let answers = [...incorrect_answers];
   const tempIndex = Math.floor(Math.random() * 4); //get random index
-  if (tempIndex == 3) {
+  if (tempIndex === 3) {
     answers.push(correct_answer);
   } else {
     answers.push(answers[tempIndex]);
@@ -56,9 +56,11 @@ function App() {
             })}
           </div>
         </article>
-        <button className="next-question" onClick={nextQuestion}>
-          next question
-        </button>
+        <div className="btn-div">
+          <button className="next-question" onClick={nextQuestion}>
+            next question
+          </button>
+        </div>
       </section>
     </main>
   );

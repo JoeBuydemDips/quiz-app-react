@@ -154,6 +154,7 @@ main {
   border-radius: var(--radius);
   padding: 3rem;
 }
+
 .quiz-small {
   max-width: 500px;
 }
@@ -201,9 +202,10 @@ main {
   border-color: transparent;
   padding: 0.25rem 0.5rem;
   display: block;
-  width: 35%;
-  margin-left: auto;
-  margin-top: 2rem;
+  /* width: 35%; */
+  /* margin-left: auto;
+  margin-top: 2rem; */
+  margin: auto;
   text-transform: capitalize;
   font-weight: 700;
   letter-spacing: var(--spacing);
@@ -216,6 +218,11 @@ main {
 .next-question:hover {
   background: #805900;
   color: #ffb100;
+}
+
+.btn-div {
+  justify-content: center;
+  margin-top: 2rem;
 }
 /*
 =============== 
